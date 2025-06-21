@@ -7,7 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 
 
-Route::post('register', [AuthController::class, 'register']);
+
 Route::prefix('products')->group(function () {
     Route::post('/', [ProductController::class, 'index']);
 });
