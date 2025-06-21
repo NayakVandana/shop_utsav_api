@@ -74,10 +74,9 @@ class AuthController extends Controller
                 'expires_at' => Carbon::now()->addDays(7),
             ]);
 
-            return $this->sendJsonResponse(true, 'Login successful', [
-                'user' => $user,
-                'token' => $token,
-            ]);
+             $user->access_token = $token;
+
+              return $this->sendJsonResponse(true, 'Login Successfully', $user);
         } catch (\Exception $e) {
             return $this->sendError($e);
         }
